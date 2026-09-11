@@ -704,14 +704,27 @@
       const pinBtn = document.getElementById('pinWishBtn');
       const wishInput = document.getElementById('wishInput');
       const pinnedWishes = document.getElementById('pinnedWishes');
-      pinBtn.addEventListener('click', () => {
-        const val = wishInput.value.trim();
-        if (!val) return;
+      
+      const savedWishes = JSON.parse(localStorage.getItem('heerBdayWishes') || '[]');
+      
+      function addNoteToDOM(val) {
         const note = document.createElement('div');
         note.className = 'pin-note';
         note.style.setProperty('--pr', (Math.random() * 4 - 2) + 'deg');
         note.textContent = val;
         pinnedWishes.appendChild(note);
+      }
+
+      savedWishes.forEach(wish => addNoteToDOM(wish));
+
+      pinBtn.addEventListener('click', () => {
+        const val = wishInput.value.trim();
+        if (!val) return;
+        
+        addNoteToDOM(val);
+        savedWishes.push(val);
+        localStorage.setItem('heerBdayWishes', JSON.stringify(savedWishes));
+        
         wishInput.value = '';
       });
     })();
