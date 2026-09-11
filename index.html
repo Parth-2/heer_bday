@@ -534,7 +534,9 @@
 
 <body>
 
-  <div id="ytplayer" style="position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></div>
+  <audio id="bgMusic" loop>
+    <source src="./bgm.mp3" type="audio/mpeg">
+  </audio>
   <div class="doodle-layer" id="doodleLayer"></div>
 
   <section class="hero">
@@ -669,41 +671,24 @@
 </button>
 
   <script>
-    // ---------- YouTube IFrame API ----------
-    let ytPlayer;
-    function onYouTubeIframeAPIReady() {
-      ytPlayer = new YT.Player('ytplayer', {
-        height: '1',
-        width: '1',
-        videoId: 'U5UhkvH3IcI',
-        playerVars: { 'playsinline': 1, 'start': 10 }
-      });
-    }
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
     (function () {
+      const bgMusic = document.getElementById('bgMusic');
       // ---------- music toggle logic ----------
       const musicToggle = document.getElementById('musicToggle');
       const iconPlaying = musicToggle.querySelector('.icon-playing');
       const iconMuted = musicToggle.querySelector('.icon-muted');
       
       musicToggle.addEventListener('click', () => {
-        if (ytPlayer && typeof ytPlayer.getPlayerState === 'function') {
-          const state = ytPlayer.getPlayerState();
-          if (state === 1) { // 1 means playing
-            ytPlayer.pauseVideo();
-            iconPlaying.style.display = 'none';
-            iconMuted.style.display = 'block';
-            musicToggle.title = 'Play Music';
-          } else {
-            ytPlayer.playVideo();
-            iconPlaying.style.display = 'block';
-            iconMuted.style.display = 'none';
-            musicToggle.title = 'Pause Music';
-          }
+        if (!bgMusic.paused) {
+          bgMusic.pause();
+          iconPlaying.style.display = 'none';
+          iconMuted.style.display = 'block';
+          musicToggle.title = 'Play Music';
+        } else {
+          bgMusic.play();
+          iconPlaying.style.display = 'block';
+          iconMuted.style.display = 'none';
+          musicToggle.title = 'Pause Music';
         }
       });
 
@@ -745,10 +730,9 @@
           if (blown === total) {
             wishReveal.classList.add('show');
             launchConfetti();
-            if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
-              ytPlayer.playVideo();
-              document.getElementById('musicToggle').style.display = 'flex';
-            }
+            bgMusic.currentTime = 10;
+            bgMusic.play().catch(e => console.log('Audio play failed', e));
+            document.getElementById('musicToggle').style.display = 'flex';
           }
         }
       });
@@ -757,10 +741,9 @@
           document.querySelectorAll('.flame:not(.out)').forEach(f => f.classList.add('out'));
           wishReveal.classList.add('show');
           launchConfetti();
-          if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
-            ytPlayer.playVideo();
-            document.getElementById('musicToggle').style.display = 'flex';
-          }
+          bgMusic.currentTime = 10;
+          bgMusic.play().catch(e => console.log('Audio play failed', e));
+          document.getElementById('musicToggle').style.display = 'flex';
         }
       });
 
