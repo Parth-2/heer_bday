@@ -486,7 +486,7 @@
 
 <body>
 
-  <div id="ytplayer" style="display: none;"></div>
+  <div id="ytplayer" style="position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></div>
   <div class="doodle-layer" id="doodleLayer"></div>
 
   <section class="hero">
@@ -614,8 +614,8 @@
     let ytPlayer;
     function onYouTubeIframeAPIReady() {
       ytPlayer = new YT.Player('ytplayer', {
-        height: '0',
-        width: '0',
+        height: '1',
+        width: '1',
         videoId: 'U5UhkvH3IcI',
         playerVars: { 'playsinline': 1, 'start': 10 }
       });
