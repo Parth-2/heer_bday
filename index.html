@@ -486,6 +486,7 @@
 
 <body>
 
+  <div id="ytplayer" style="display: none;"></div>
   <div class="doodle-layer" id="doodleLayer"></div>
 
   <section class="hero">
@@ -609,6 +610,21 @@
 </footer>
 
   <script>
+    // ---------- YouTube IFrame API ----------
+    let ytPlayer;
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player('ytplayer', {
+        height: '0',
+        width: '0',
+        videoId: 'U5UhkvH3IcI',
+        playerVars: { 'playsinline': 1 }
+      });
+    }
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
     (function () {
       // ---------- floating doodle background (music notes, pencils, dots) ----------
       const doodleLayer = document.getElementById('doodleLayer');
@@ -648,6 +664,7 @@
           if (blown === total) {
             wishReveal.classList.add('show');
             launchConfetti();
+            if (ytPlayer && typeof ytPlayer.playVideo === 'function') ytPlayer.playVideo();
           }
         }
       });
@@ -656,6 +673,7 @@
           document.querySelectorAll('.flame:not(.out)').forEach(f => f.classList.add('out'));
           wishReveal.classList.add('show');
           launchConfetti();
+          if (ytPlayer && typeof ytPlayer.playVideo === 'function') ytPlayer.playVideo();
         }
       });
 
