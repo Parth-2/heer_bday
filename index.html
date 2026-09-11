@@ -501,6 +501,34 @@
       pointer-events: none;
       border-radius: 1px;
     }
+
+    /* Music toggle */
+    #musicToggle {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 100;
+      background: var(--paper);
+      border: 2px solid var(--lavender);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--lavender-deep);
+      box-shadow: 0 4px 12px rgba(62,53,82,0.15);
+      transition: transform 0.2s, background 0.2s;
+    }
+    #musicToggle:hover {
+      transform: scale(1.05);
+      background: var(--lavender-pale);
+    }
+    #musicToggle svg {
+      width: 20px;
+      height: 20px;
+    }
   </style>
 </head>
 
@@ -629,6 +657,17 @@
   stitched together with smiles, for Heer 💜
 </footer>
 
+<button id="musicToggle" aria-label="Toggle Music" title="Pause Music">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon-playing">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+  </svg>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon-muted" style="display:none;">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <line x1="23" y1="1" x2="1" y2="23"></line>
+  </svg>
+</button>
+
   <script>
     // ---------- YouTube IFrame API ----------
     let ytPlayer;
@@ -646,6 +685,28 @@
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
     (function () {
+      // ---------- music toggle logic ----------
+      const musicToggle = document.getElementById('musicToggle');
+      const iconPlaying = musicToggle.querySelector('.icon-playing');
+      const iconMuted = musicToggle.querySelector('.icon-muted');
+      
+      musicToggle.addEventListener('click', () => {
+        if (ytPlayer && typeof ytPlayer.getPlayerState === 'function') {
+          const state = ytPlayer.getPlayerState();
+          if (state === 1) { // 1 means playing
+            ytPlayer.pauseVideo();
+            iconPlaying.style.display = 'none';
+            iconMuted.style.display = 'block';
+            musicToggle.title = 'Play Music';
+          } else {
+            ytPlayer.playVideo();
+            iconPlaying.style.display = 'block';
+            iconMuted.style.display = 'none';
+            musicToggle.title = 'Pause Music';
+          }
+        }
+      });
+
       // ---------- floating doodle background (music notes, pencils, dots) ----------
       const doodleLayer = document.getElementById('doodleLayer');
       const doodleSVGs = [
@@ -684,7 +745,10 @@
           if (blown === total) {
             wishReveal.classList.add('show');
             launchConfetti();
-            if (ytPlayer && typeof ytPlayer.playVideo === 'function') ytPlayer.playVideo();
+            if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+              ytPlayer.playVideo();
+              document.getElementById('musicToggle').style.display = 'flex';
+            }
           }
         }
       });
@@ -693,7 +757,10 @@
           document.querySelectorAll('.flame:not(.out)').forEach(f => f.classList.add('out'));
           wishReveal.classList.add('show');
           launchConfetti();
-          if (ytPlayer && typeof ytPlayer.playVideo === 'function') ytPlayer.playVideo();
+          if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+            ytPlayer.playVideo();
+            document.getElementById('musicToggle').style.display = 'flex';
+          }
         }
       });
 
