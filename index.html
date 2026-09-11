@@ -461,6 +461,27 @@
       max-width: 220px;
       box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.08);
       transform: rotate(var(--pr, -2deg));
+      position: relative;
+    }
+
+    .del-note {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      background: transparent;
+      border: none;
+      color: var(--ink-soft);
+      font-size: 1.2rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 2px 6px;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .del-note:hover {
+      opacity: 1;
+      color: var(--plum);
     }
 
     footer {
@@ -712,6 +733,21 @@
         note.className = 'pin-note';
         note.style.setProperty('--pr', (Math.random() * 4 - 2) + 'deg');
         note.textContent = val;
+        
+        const delBtn = document.createElement('button');
+        delBtn.innerHTML = '&times;';
+        delBtn.className = 'del-note';
+        delBtn.title = 'Delete wish';
+        delBtn.addEventListener('click', () => {
+          note.remove();
+          const idx = savedWishes.indexOf(val);
+          if (idx > -1) {
+            savedWishes.splice(idx, 1);
+            localStorage.setItem('heerBdayWishes', JSON.stringify(savedWishes));
+          }
+        });
+        
+        note.appendChild(delBtn);
         pinnedWishes.appendChild(note);
       }
 
