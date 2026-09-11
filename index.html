@@ -1,574 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday, Heer Mehta!</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heer Mehta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Nunito+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --paper: #FAF6F0;
+      --paper-edge: #EFE7DA;
+      --lavender-pale: #F0D9FF;
+      --lavender: #C77DFF;
+      --lavender-deep: #9D4EDD;
+      --plum: #A85B8C;
+      --ink: #3E3552;
+      --ink-soft: #6B6080;
+      --gold: #E0B84B;
+    }
 
-  :root{
-    --paper: #FAF6F0;
-    --paper-edge: #EFE7DA;
-    --lavender-pale: #F0D9FF;
-    --lavender: #C77DFF;
-    --lavender-deep: #9D4EDD;
-    --plum: #A85B8C;
-    --ink: #3E3552;
-    --ink-soft: #6B6080;
-    --gold: #E0B84B;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  *{ box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  html{ scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(183, 164, 224, 0.15), transparent 40%),
+        radial-gradient(circle at 85% 70%, rgba(168, 91, 140, 0.10), transparent 45%),
+        var(--paper);
+      color: var(--ink);
+      font-family: 'Nunito Sans', sans-serif;
+      overflow-x: hidden;
+    }
 
-  body{
-    margin:0;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(183,164,224,0.15), transparent 40%),
-      radial-gradient(circle at 85% 70%, rgba(168,91,140,0.10), transparent 45%),
-      var(--paper);
-    color: var(--ink);
-    font-family: 'Nunito Sans', sans-serif;
-    overflow-x: hidden;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-  }
-
-  /* ---------- Floating doodles background ---------- */
-  .doodle-layer{
-    position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
-  }
-  .doodle{
-    position: absolute;
-    opacity: 0.35;
-    stroke: var(--lavender-deep);
-  }
-
-  /* ---------- Hero ---------- */
-  .hero{
-    position: relative;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 6vh 6vw 8vh;
-    z-index: 1;
-  }
-
-  .washi{
-    position: absolute;
-    top: 4vh;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
-    width: min(120px, 30vw);
-    height: 34px;
-    background: repeating-linear-gradient(135deg, var(--lavender), var(--lavender) 8px, var(--lavender-pale) 8px, var(--lavender-pale) 16px);
-    opacity: 0.8;
-    border-radius: 2px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  }
-
-  .sketch-frame{
-    position: relative;
-    max-width: 640px;
-    padding: 3.5rem 2.5rem;
-    margin-top: 3rem;
-  }
-
-  .sketch-frame svg.border{
-    position: absolute; inset: 0; width: 100%; height: 100%;
-  }
-
-  .eyebrow-hand{
-    font-family: 'Caveat', cursive;
-    font-size: clamp(1.3rem, 3vw, 1.7rem);
-    color: var(--plum);
-    margin: 0 0 0.4rem;
-    transform: rotate(-1.5deg);
-  }
-
-  h1.headline{
-    font-family: 'Caveat', cursive;
-    font-weight: 700;
-    font-size: clamp(3.2rem, 11vw, 6.5rem);
-    line-height: 0.95;
-    margin: 0;
-    color: var(--ink);
-    letter-spacing: 0.5px;
-  }
-  h1.headline .accent{
-    color: var(--plum);
-    display: block;
-    font-size: clamp(3.6rem, 13vw, 7.5rem);
-  }
-
-  .subline{
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: clamp(1.05rem, 2.4vw, 1.3rem);
-    color: var(--ink-soft);
-    margin: 1.4rem auto 0;
-    max-width: 34ch;
-  }
-
-  .polaroid{
-    background: #fff;
-    padding: 0.9rem 0.9rem 2.2rem;
-    box-shadow: 0 10px 24px rgba(62,53,82,0.15);
-    transform: rotate(-3deg);
-    margin-top: 2.5rem;
-    width: min(220px, 60vw);
-  }
-  .polaroid img{
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    display: block;
-  }
-  .polaroid-caption{
-    display: block;
-    text-align: center;
-    font-family: 'Caveat', cursive;
-    font-size: 1.15rem;
-    color: var(--ink-soft);
-    margin-top: 0.6rem;
-  }
-
-  .scroll-cue{
-    margin-top: 3.5rem;
-    font-family: 'Caveat', cursive;
-    font-size: 1.3rem;
-    color: var(--lavender-deep);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-    animation: bob 2.4s ease-in-out infinite;
-  }
-  @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(8px);} }
-
-  /* ---------- Sections shared ---------- */
-  section{
-    position: relative;
-    z-index: 1;
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 5rem 6vw;
-  }
-
-  .section-label{
-    font-family: 'Caveat', cursive;
-    font-size: 1.4rem;
-    color: var(--plum);
-    margin-bottom: 0.6rem;
-    transform: rotate(-1deg);
-  }
-
-  h2{
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    margin: 0 0 1.6rem;
-    color: var(--ink);
-    max-width: 18ch;
-  }
-
-  /* ---------- Cake / candle interactive ---------- */
-  .cake-wrap{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.6rem;
-  }
-
-  .cake-instructions{
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    color: var(--ink-soft);
-    font-size: 1.05rem;
-  }
-
-  #cakeSvg{ width: min(340px, 80vw); height: auto; cursor: pointer; }
-
-  .flame{ transform-origin: center bottom; animation: flicker 1.6s ease-in-out infinite; }
-  @keyframes flicker{
-    0%,100%{ transform: scaleY(1) rotate(0deg); }
-    50%{ transform: scaleY(1.12) rotate(-2deg); }
-  }
-  .flame.out{ animation: none; opacity: 0; }
-
-  .wish-reveal{
-    max-width: 40ch;
-    font-family: 'Caveat', cursive;
-    font-size: 1.6rem;
-    color: var(--lavender-deep);
-    opacity: 0;
-    transform: translateY(6px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    min-height: 2.4rem;
-  }
-  .wish-reveal.show{ opacity: 1; transform: translateY(0); }
-
-  /* ---------- Traits cards (artistic mind) ---------- */
-  .trait-row{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.4rem;
-    margin-top: 2.2rem;
-  }
-  @media (max-width: 620px){ .trait-row{ grid-template-columns: 1fr; } }
-
-  .trait-card{
-    background: var(--paper);
-    border: 1.5px solid var(--lavender);
-    border-radius: 2px;
-    padding: 1.6rem 1.3rem;
-    position: relative;
-    transform: rotate(var(--r, -1deg));
-    box-shadow: 3px 4px 0 rgba(124, 99, 179, 0.15);
-  }
-  .trait-card:nth-child(1){ --r: -1.4deg; }
-  .trait-card:nth-child(2){ --r: 0.8deg; }
-  .trait-card:nth-child(3){ --r: -0.6deg; }
-
-  .trait-card svg{ width: 34px; height: 34px; margin-bottom: 0.6rem; color: var(--plum); }
-
-  .trait-card h3{
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    margin: 0 0 0.4rem;
-    color: var(--ink);
-  }
-  .trait-card p{
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  .gallery-strip{
-    display: flex;
-    gap: 1.1rem;
-    margin-top: 2.4rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .gallery-strip img{
-    width: 140px;
-    height: 175px;
-    object-fit: cover;
-    border: 6px solid #fff;
-    box-shadow: 0 6px 16px rgba(62,53,82,0.15);
-  }
-  .gallery-strip img:nth-child(1){ transform: rotate(-4deg); }
-  .gallery-strip img:nth-child(2){ transform: rotate(2deg); }
-  .gallery-strip img:nth-child(3){ transform: rotate(-1.5deg); }
-
-  /* ---------- Letter section ---------- */
-  .letter{
-    background: var(--paper);
-    border: 1.5px solid var(--paper-edge);
-    box-shadow: 0 8px 30px rgba(62, 53, 82, 0.08);
-    padding: 3rem 2.6rem;
-    position: relative;
-    border-radius: 2px;
-  }
-  .letter::before{
-    content: "";
-    position: absolute;
-    top: -10px; left: 30px;
-    width: 60px; height: 20px;
-    background: repeating-linear-gradient(135deg, var(--gold), var(--gold) 6px, #F3DFA0 6px, #F3DFA0 12px);
-    opacity: 0.85;
-    transform: rotate(-3deg);
-  }
-  .letter p{
-    font-family: 'Fraunces', serif;
-    font-size: 1.08rem;
-    line-height: 1.85;
-    color: var(--ink);
-    margin: 0 0 1.2rem;
-  }
-  .signoff{
-    font-family: 'Caveat', cursive;
-    font-size: 2rem;
-    color: var(--plum);
-    margin-top: 1.4rem;
-  }
-
-  /* ---------- Wish box ---------- */
-  .wishbox-area{
-    text-align: center;
-  }
-  .wishbox-area textarea{
-    width: 100%;
-    max-width: 480px;
-    min-height: 90px;
-    font-family: 'Fraunces', serif;
-    font-size: 1rem;
-    padding: 1rem 1.1rem;
-    border: 1.5px solid var(--lavender);
-    border-radius: 3px;
-    background: var(--lavender-pale);
-    color: var(--ink);
-    resize: vertical;
-  }
-  .wishbox-area textarea:focus{
-    outline: 2px solid var(--lavender-deep);
-    outline-offset: 2px;
-  }
-
-  button.primary{
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--paper);
-    background: var(--lavender-deep);
-    border: none;
-    padding: 0.85rem 1.8rem;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: transform 0.15s ease, background 0.2s ease;
-  }
-  button.primary:hover{ background: var(--plum); transform: translateY(-2px); }
-  button.primary:focus-visible{ outline: 2px solid var(--ink); outline-offset: 3px; }
-
-  .pinned-wishes{
-    margin-top: 2.4rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-  }
-  .pin-note{
-    background: #FFF9E5;
-    border: 1px solid #EFE2A8;
-    padding: 1rem 1.1rem;
-    font-family: 'Caveat', cursive;
-    font-size: 1.25rem;
-    color: var(--ink);
-    max-width: 220px;
-    box-shadow: 2px 3px 6px rgba(0,0,0,0.08);
-    transform: rotate(var(--pr, -2deg));
-  }
-
-  footer{
-    text-align: center;
-    padding: 4rem 6vw 3rem;
-    font-family: 'Caveat', cursive;
-    font-size: 1.3rem;
-    color: var(--ink-soft);
-    position: relative;
-    z-index: 1;
-  }
-
-  /* confetti */
-  .confetti-piece{
-    position: fixed;
-    top: -20px;
-    z-index: 50;
-    pointer-events: none;
-    border-radius: 1px;
-  }
-
-</style>
-</head>
-<body>
-
-<div class="doodle-layer" id="doodleLayer"></div>
-
-<section class="hero">
-  <div class="washi"></div>
-  <div class="sketch-frame">
-    <svg class="border" viewBox="0 0 600 320" preserveAspectRatio="none" aria-hidden="true">
-      <rect x="6" y="6" width="588" height="308" fill="none" stroke="#B7A4E0" stroke-width="1.5" rx="2"
-            style="stroke-dasharray: 3 5;"/>
-    </svg>
-    <p class="eyebrow-hand">a little page, just for you</p>
-    <h1 class="headline">Happy Birthday<span class="accent">Heer!</span></h1>
-    <p class="subline">One more year of sketchbooks, songs, and that wonderfully busy, beautiful mind of yours.</p>
-  </div>
-  <div class="polaroid">
-    <img src="https://picsum.photos/seed/heerbday1/360/360" alt="Placeholder photo — replace with a photo of Heer">
-  </div>
-  <div class="scroll-cue" aria-hidden="true">
-    <span>keep scrolling</span>
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v14M10 17l-5-5M10 17l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </div>
-</section>
-
-<section id="cakeSection">
-  <p class="section-label">step one</p>
-  <h2>Make a wish, then blow out the candles.</h2>
-  <div class="cake-wrap">
-    <p class="cake-instructions">Tap the candles when you're ready.</p>
-    <svg id="cakeSvg" viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" role="button" aria-label="Blow out the candles">
-      <ellipse cx="150" cy="210" rx="110" ry="16" fill="#E9E2F7"/>
-      <rect x="55" y="150" width="190" height="60" rx="6" fill="#EADCF2" stroke="#7C63B3" stroke-width="2"/>
-      <rect x="55" y="150" width="190" height="14" fill="#F7EFFB"/>
-      <rect x="70" y="110" width="160" height="45" rx="6" fill="#DCC9EF" stroke="#7C63B3" stroke-width="2"/>
-      <rect x="70" y="110" width="160" height="12" fill="#EFE1F7"/>
-      <g id="candles">
-        <g class="candle" data-i="0"><rect x="95" y="80" width="8" height="32" rx="2" fill="#A85B8C"/><path class="flame" d="M99 80 C 95 72, 95 66, 99 60 C 103 66, 103 72, 99 80 Z" fill="#E0B84B"/></g>
-        <g class="candle" data-i="1"><rect x="146" y="72" width="8" height="40" rx="2" fill="#A85B8C"/><path class="flame" d="M150 72 C 146 64, 146 58, 150 52 C 154 58, 154 64, 150 72 Z" fill="#E0B84B"/></g>
-        <g class="candle" data-i="2"><rect x="197" y="80" width="8" height="32" rx="2" fill="#A85B8C"/><path class="flame" d="M201 80 C 197 72, 197 66, 201 60 C 205 66, 205 72, 201 80 Z" fill="#E0B84B"/></g>
-      </g>
-    </svg>
-    <p class="wish-reveal" id="wishReveal">Wish sent — the universe has been notified. 🌙</p>
-  </div>
-</section>
-
-<section id="traits">
-  <p class="section-label">the person we're celebrating</p>
-  <h2>A mind that sketches, sings, and sees things differently.</h2>
-  <div class="trait-row">
-    <div class="trait-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21l4-1 12-12-3-3L4 17l-1 4z"/><path d="M14 6l3 3"/></svg>
-      <h3>The sketches</h3>
-      <p>Every notebook margin turns into a tiny gallery when it's yours.</p>
-    </div>
-    <div class="trait-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-      <h3>The voice</h3>
-      <p>You could make a grocery list sound like a melody worth humming.</p>
-    </div>
-    <div class="trait-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18"/></svg>
-      <h3>The outlook</h3>
-      <p>An eye for beauty in things everyone else walks straight past.</p>
-    </div>
-  </div>
-  <div class="gallery-strip">
-    <img src="https://picsum.photos/seed/heersketch1/240/300" alt="Placeholder — replace with one of Heer's sketches">
-    <img src="https://picsum.photos/seed/heersketch2/240/300" alt="Placeholder — replace with one of Heer's sketches">
-    <img src="https://picsum.photos/seed/heersketch3/240/300" alt="Placeholder — replace with one of Heer's sketches">
-  </div>
-</section>
-
-<section id="letter">
-  <p class="section-label">step two</p>
-  <h2>A little note</h2>
-  <div class="letter">
-    <p>Dear Heer,</p>
-    <p>Happy birthday. Today's about you — every sketch you've filled a page with, every song you've hummed into existence, every idea that only made sense once you drew it out or sang it aloud. That kind of mind doesn't come around often, and I'm lucky it comes with a friend attached.</p>
-    <p>Here's to another year of dreamy half-finished drawings that are somehow already perfect, and songs only you know the tune to. I hope it's soft, loud, colourful, and exactly as wonderful as you are.</p>
-    <p class="signoff">— with so much love, always</p>
-  </div>
-</section>
-
-<section id="wishbox" class="wishbox-area">
-  <p class="section-label">step three</p>
-  <h2>Leave her a birthday line</h2>
-  <p class="cake-instructions" style="margin-bottom:1rem;">This stays on the page while it's open — pin a wish below.</p>
-  <textarea id="wishInput" placeholder="Write something sweet for Heer..." aria-label="Write a birthday wish"></textarea><br>
-  <button class="primary" id="pinWishBtn">Pin this wish</button>
-  <div class="pinned-wishes" id="pinnedWishes"></div>
-</section>
-
-<footer>
-  made with violet ink, for Heer 💜
-</footer>
-
-<script>
-(function(){
-  // ---------- floating doodle background (music notes, pencils, dots) ----------
-  const doodleLayer = document.getElementById('doodleLayer');
-  const doodleSVGs = [
-    '<svg class="doodle" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
-    '<svg class="doodle" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.5"><path d="M3 21l4-1 12-12-3-3L4 17l-1 4z"/></svg>',
-    '<svg class="doodle" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="3"/></svg>'
-  ];
-  const positions = [
-    {t:'6%',l:'8%'},{t:'22%',l:'88%'},{t:'40%',l:'4%'},{t:'55%',l:'92%'},
-    {t:'70%',l:'10%'},{t:'85%',l:'85%'},{t:'12%',l:'50%'},{t:'95%',l:'45%'}
-  ];
-  positions.forEach((p,i)=>{
-    const el = document.createElement('div');
-    el.innerHTML = doodleSVGs[i % doodleSVGs.length];
-    const svgEl = el.firstElementChild;
-    svgEl.style.position = 'absolute';
-    svgEl.style.top = p.t;
-    svgEl.style.left = p.l;
-    svgEl.style.transform = `rotate(${(i%2?1:-1)*(10+i*4)}deg)`;
-    doodleLayer.appendChild(svgEl);
-  });
-
-  // ---------- candle blow interaction ----------
-  const cakeSvg = document.getElementById('cakeSvg');
-  const wishReveal = document.getElementById('wishReveal');
-  let blown = 0;
-  const total = document.querySelectorAll('.flame').length;
-
-  cakeSvg.addEventListener('click', (e)=>{
-    const flame = e.target.closest('.candle');
-    if(!flame) return;
-    const f = flame.querySelector('.flame');
-    if(f && !f.classList.contains('out')){
-      f.classList.add('out');
-      blown++;
-      if(blown === total){
-        wishReveal.classList.add('show');
-        launchConfetti();
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
       }
     }
-  });
-  cakeSvg.addEventListener('keydown', (e)=>{
-    if(e.key === 'Enter' || e.key === ' '){
-      document.querySelectorAll('.flame:not(.out)').forEach(f=>f.classList.add('out'));
-      wishReveal.classList.add('show');
-      launchConfetti();
-    }
-  });
 
-  // ---------- confetti burst (single orchestrated moment) ----------
-  function launchConfetti(){
-    const colors = ['#B7A4E0','#7C63B3','#A85B8C','#E0B84B','#F3DFA0'];
-    for(let i=0;i<50;i++){
-      const piece = document.createElement('div');
-      piece.className = 'confetti-piece';
-      const size = 6 + Math.random()*6;
-      piece.style.width = size+'px';
-      piece.style.height = (size*0.4)+'px';
-      piece.style.left = Math.random()*100+'vw';
-      piece.style.background = colors[Math.floor(Math.random()*colors.length)];
-      const duration = 2.5 + Math.random()*1.8;
-      const rotate = Math.random()*360;
-      piece.style.transform = `rotate(${rotate}deg)`;
-      piece.animate([
-        { transform: `translateY(0) rotate(${rotate}deg)`, opacity: 1 },
-        { transform: `translateY(100vh) rotate(${rotate+180}deg)`, opacity: 0.9 }
-      ], { duration: duration*1000, easing: 'cubic-bezier(.25,.46,.45,.94)' });
-      document.body.appendChild(piece);
-      setTimeout(()=> piece.remove(), duration*1000+100);
+    /* ---------- Floating doodles background ---------- */
+    .doodle-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
     }
-  }
 
-  // ---------- pin a wish ----------
-  const pinBtn = document.getElementById('pinWishBtn');
-  const wishInput = document.getElementById('wishInput');
-  const pinnedWishes = document.getElementById('pinnedWishes');
-  pinBtn.addEventListener('click', ()=>{
-    const val = wishInput.value.trim();
-    if(!val) return;
-    const note = document.createElement('div');
-    note.className = 'pin-note';
-    note.style.setProperty('--pr', (Math.random()*4-2)+'deg');
-    note.textContent = val;
-    pinnedWishes.appendChild(note);
-    wishInput.value = '';
-  });
-})();
-</script>
+    .doodle {
+      position: absolute;
+      opacity: 0.35;
+      stroke: var(--lavender-deep);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6vh 6vw 8vh;
+      z-index: 1;
+    }
+
+    .washi {
+      position: absolute;
+      top: 4vh;
+      left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      width: min(120px, 30vw);
+      height: 34px;
+      background: repeating-linear-gradient(135deg, var(--lavender), var(--lavender) 8px, var(--lavender-pale) 8px, var(--lavender-pale) 16px);
+      opacity: 0.8;
+      border-radius: 2px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .sketch-frame {
+      position: relative;
+      max-width: 640px;
+      padding: 3.5rem 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .sketch-frame svg.border {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .eyebrow-hand {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      color: var(--plum);
+      margin: 0 0 0.4rem;
+      transform: rotate(-1.5deg);
+    }
+
+    h1.headline {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: clamp(3.2rem, 11vw, 6.5rem);
+      line-height: 0.95;
+      margin: 0;
+      color: var(--ink);
+      letter-spacing: 0.5px;
+    }
+
+    h1.headline .accent {
+      color: var(--plum);
+      display: block;
+      font-size: clamp(3.6rem, 13vw, 7.5rem);
+    }
+
+    .subline {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+      color: var(--ink-soft);
+      margin: 1.4rem auto 0;
+      max-width: 34ch;
+    }
+
+    .polaroid {
+      background: #fff;
+      padding: 0.9rem 0.9rem 2.2rem;
+      box-shadow: 0 10px 24px rgba(62, 53, 82, 0.15);
+      transform: rotate(-3deg);
+      margin-top: 2.5rem;
+      width: min(220px, 60vw);
+    }
+
+    .polaroid img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .polaroid-caption {
+      display: block;
+      text-align: center;
+      font-family: 'Caveat', cursive;
+      font-size: 1.15rem;
+      color: var(--ink-soft);
+      margin-top: 0.6rem;
+    }
+
+    .scroll-cue {
+      margin-top: 3.5rem;
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      color: var(--lavender-deep);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      animation: bob 2.4s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(8px);
+      }
+    }
+
+    /* ---------- Sections shared ---------- */
+    section {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 5rem 6vw;
+    }
+
+    .section-label {
+      font-family: 'Caveat', cursive;
+      font-size: 1.4rem;
+      color: var(--plum);
+      margin-bottom: 0.6rem;
+      transform: rotate(-1deg);
+    }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin: 0 0 1.6rem;
+      color: var(--ink);
+      max-width: 18ch;
+    }
+
+    /* ---------- Cake / candle interactive ---------- */
+    .cake-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.6rem;
+    }
+
+    .cake-instructions {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+    }
+
+    #cakeSvg {
+      width: min(340px, 80vw);
+      height: auto;
+      cursor: pointer;
+    }
+
+    .flame {
+      transform-origin: center bottom;
+      animation: flicker 1.6s ease-in-out infinite;
+    }
+
+    @keyframes flicker {
+
+      0%,
+      100% {
+        transform: scaleY(1) rotate(0deg);
+      }
+
+      50% {
+        transform: scaleY(1.12) rotate(-2deg);
+      }
+    }
+
+    .flame.out {
+      animation: none;
+      opacity: 0;
+    }
+
+    .wish-reveal {
+      max-width: 40ch;
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      color: var(--lavender-deep);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      min-height: 2.4rem;
+    }
+
+    .wish-reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- Traits cards (artistic mind) ---------- */
+    .trait-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+      margin-top: 2.2rem;
+    }
+
+    @media (max-width: 620px) {
+      .trait-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .trait-card {
+      background: var(--paper);
+      border: 1.5px solid var(--lavender);
+      border-radius: 2px;
+      padding: 1.6rem 1.3rem;
+      position: relative;
+      transform: rotate(var(--r, -1deg));
+      box-shadow: 3px 4px 0 rgba(124, 99, 179, 0.15);
+    }
+
+    .trait-card:nth-child(1) {
+      --r: -1.4deg;
+    }
+
+    .trait-card:nth-child(2) {
+      --r: 0.8deg;
+    }
+
+    .trait-card:nth-child(3) {
+      --r: -0.6deg;
+    }
+
+    .trait-card svg {
+      width: 34px;
+      height: 34px;
+      margin-bottom: 0.6rem;
+      color: var(--plum);
+    }
+
+    .trait-card h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin: 0 0 0.4rem;
+      color: var(--ink);
+    }
+
+    .trait-card p {
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .gallery-strip {
+      display: flex;
+      gap: 1.1rem;
+      margin-top: 2.4rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .gallery-strip img {
+      width: 140px;
+      height: 175px;
+      object-fit: cover;
+      border: 6px solid #fff;
+      box-shadow: 0 6px 16px rgba(62, 53, 82, 0.15);
+    }
+
+    .gallery-strip img:nth-child(1) {
+      transform: rotate(-4deg);
+    }
+
+    .gallery-strip img:nth-child(2) {
+      transform: rotate(2deg);
+    }
+
+    .gallery-strip img:nth-child(3) {
+      transform: rotate(-1.5deg);
+    }
+
+    /* ---------- Letter section ---------- */
+    .letter {
+      background: var(--paper);
+      border: 1.5px solid var(--paper-edge);
+      box-shadow: 0 8px 30px rgba(62, 53, 82, 0.08);
+      padding: 3rem 2.6rem;
+      position: relative;
+      border-radius: 2px;
+    }
+
+    .letter::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 30px;
+      width: 60px;
+      height: 20px;
+      background: repeating-linear-gradient(135deg, var(--gold), var(--gold) 6px, #F3DFA0 6px, #F3DFA0 12px);
+      opacity: 0.85;
+      transform: rotate(-3deg);
+    }
+
+    .letter p {
+      font-family: 'Fraunces', serif;
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: var(--ink);
+      margin: 0 0 1.2rem;
+    }
+
+    .signoff {
+      font-family: 'Caveat', cursive;
+      font-size: 2rem;
+      color: var(--plum);
+      margin-top: 1.4rem;
+    }
+
+    /* ---------- Wish box ---------- */
+    .wishbox-area {
+      text-align: center;
+    }
+
+    .wishbox-area textarea {
+      width: 100%;
+      max-width: 480px;
+      min-height: 90px;
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      padding: 1rem 1.1rem;
+      border: 1.5px solid var(--lavender);
+      border-radius: 3px;
+      background: var(--lavender-pale);
+      color: var(--ink);
+      resize: vertical;
+    }
+
+    .wishbox-area textarea:focus {
+      outline: 2px solid var(--lavender-deep);
+      outline-offset: 2px;
+    }
+
+    button.primary {
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--paper);
+      background: var(--lavender-deep);
+      border: none;
+      padding: 0.85rem 1.8rem;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: transform 0.15s ease, background 0.2s ease;
+    }
+
+    button.primary:hover {
+      background: var(--plum);
+      transform: translateY(-2px);
+    }
+
+    button.primary:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .pinned-wishes {
+      margin-top: 2.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .pin-note {
+      background: #FFF9E5;
+      border: 1px solid #EFE2A8;
+      padding: 1rem 1.1rem;
+      font-family: 'Caveat', cursive;
+      font-size: 1.25rem;
+      color: var(--ink);
+      max-width: 220px;
+      box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.08);
+      transform: rotate(var(--pr, -2deg));
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 6vw 3rem;
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      color: var(--ink-soft);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* confetti */
+    .confetti-piece {
+      position: fixed;
+      top: -20px;
+      z-index: 50;
+      pointer-events: none;
+      border-radius: 1px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="doodle-layer" id="doodleLayer"></div>
+
+  <section class="hero">
+    <div class="washi"></div>
+    <div class="sketch-frame">
+      <svg class="border" viewBox="0 0 600 320" preserveAspectRatio="none" aria-hidden="true">
+        <rect x="6" y="6" width="588" height="308" fill="none" stroke="#B7A4E0" stroke-width="1.5" rx="2"
+          style="stroke-dasharray: 3 5;" />
+      </svg>
+      <p class="eyebrow-hand">a little page, just for you</p>
+      <h1 class="headline">Happy Birthday<span class="accent">Heer!</span></h1>
+      <p class="subline">One more year of sketchbooks, songs, and that wonderfully busy, beautiful mind of yours.</p>
+    </div>
+    <div class="polaroid">
+      <img src="https://picsum.photos/seed/heerbday1/360/360" alt="Placeholder photo — replace with a photo of Heer">
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <span>keep scrolling</span>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M10 3v14M10 17l-5-5M10 17l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </div>
+  </section>
+
+  <section id="cakeSection">
+    <p class="section-label">step one</p>
+    <h2>Make a wish, then blow out the candles.</h2>
+    <div class="cake-wrap">
+      <p class="cake-instructions">Tap the candles when you're ready.</p>
+      <svg id="cakeSvg" viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" role="button"
+        aria-label="Blow out the candles">
+        <ellipse cx="150" cy="210" rx="110" ry="16" fill="#E9E2F7" />
+        <rect x="55" y="150" width="190" height="60" rx="6" fill="#EADCF2" stroke="#7C63B3" stroke-width="2" />
+        <rect x="55" y="150" width="190" height="14" fill="#F7EFFB" />
+        <rect x="70" y="110" width="160" height="45" rx="6" fill="#DCC9EF" stroke="#7C63B3" stroke-width="2" />
+        <rect x="70" y="110" width="160" height="12" fill="#EFE1F7" />
+        <g id="candles">
+          <g class="candle" data-i="0">
+            <rect x="95" y="80" width="8" height="32" rx="2" fill="#A85B8C" />
+            <path class="flame" d="M99 80 C 95 72, 95 66, 99 60 C 103 66, 103 72, 99 80 Z" fill="#E0B84B" />
+          </g>
+          <g class="candle" data-i="1">
+            <rect x="146" y="72" width="8" height="40" rx="2" fill="#A85B8C" />
+            <path class="flame" d="M150 72 C 146 64, 146 58, 150 52 C 154 58, 154 64, 150 72 Z" fill="#E0B84B" />
+          </g>
+          <g class="candle" data-i="2">
+            <rect x="197" y="80" width="8" height="32" rx="2" fill="#A85B8C" />
+            <path class="flame" d="M201 80 C 197 72, 197 66, 201 60 C 205 66, 205 72, 201 80 Z" fill="#E0B84B" />
+          </g>
+        </g>
+      </svg>
+      <p class="wish-reveal" id="wishReveal">Wish sent — the universe has been notified. 🌙</p>
+    </div>
+  </section>
+
+  <section id="traits">
+    <p class="section-label">the person we're celebrating</p>
+    <h2>A mind that sketches, sings, and sees things differently.</h2>
+    <div class="trait-row">
+      <div class="trait-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M3 21l4-1 12-12-3-3L4 17l-1 4z" />
+          <path d="M14 6l3 3" />
+        </svg>
+        <h3>The sketches</h3>
+        <p>Every notebook margin turns into a tiny gallery when it's yours.</p>
+      </div>
+      <div class="trait-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="16" r="3" />
+        </svg>
+        <h3>The voice</h3>
+        <p>You could make a grocery list sound like a melody worth humming.</p>
+      </div>
+      <div class="trait-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 3a9 9 0 0 0 0 18" />
+        </svg>
+        <h3>The outlook</h3>
+        <p>An eye for beauty in things everyone else walks straight past.</p>
+      </div>
+    </div>
+    <div class="gallery-strip">
+      <img src="https://picsum.photos/seed/heersketch1/240/300" alt="Placeholder — replace with one of Heer's sketches">
+      <img src="https://picsum.photos/seed/heersketch2/240/300" alt="Placeholder — replace with one of Heer's sketches">
+      <img src="https://picsum.photos/seed/heersketch3/240/300" alt="Placeholder — replace with one of Heer's sketches">
+    </div>
+  </section>
+
+  <section id="letter">
+    <p class="section-label">step two</p>
+    <h2>A little note</h2>
+    <div class="letter">
+      <p>Dear Heer,</p>
+      <p>Happy birthday. Today's about you — every sketch you've filled a page with, every song you've hummed into
+        existence, every idea that only made sense once you drew it out or sang it aloud. That kind of mind doesn't come
+        around often, and I'm lucky it comes with a friend attached.</p>
+      <p>Here's to another year of dreamy half-finished drawings that are somehow already perfect, and songs only you
+        know the tune to. I hope it's soft, loud, colourful, and exactly as wonderful as you are.</p>
+      <p class="signoff">— with so much love, always</p>
+    </div>
+  </section>
+
+  <section id="wishbox" class="wishbox-area">
+    <p class="section-label">step three</p>
+    <h2>Leave her a birthday line</h2>
+    <p class="cake-instructions" style="margin-bottom:1rem;">This stays on the page while it's open — pin a wish below.
+    </p>
+    <textarea id="wishInput" placeholder="Write something sweet for Heer..."
+      aria-label="Write a birthday wish"></textarea><br>
+    <button class="primary" id="pinWishBtn">Pin this wish</button>
+    <div class="pinned-wishes" id="pinnedWishes"></div>
+  </section>
+
+  <footer>
+    made with violet ink, for Heer 💜
+  </footer>
+
+  <script>
+    (function () {
+      // ---------- floating doodle background (music notes, pencils, dots) ----------
+      const doodleLayer = document.getElementById('doodleLayer');
+      const doodleSVGs = [
+        '<svg class="doodle" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
+        '<svg class="doodle" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.5"><path d="M3 21l4-1 12-12-3-3L4 17l-1 4z"/></svg>',
+        '<svg class="doodle" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="3"/></svg>'
+      ];
+      const positions = [
+        { t: '6%', l: '8%' }, { t: '22%', l: '88%' }, { t: '40%', l: '4%' }, { t: '55%', l: '92%' },
+        { t: '70%', l: '10%' }, { t: '85%', l: '85%' }, { t: '12%', l: '50%' }, { t: '95%', l: '45%' }
+      ];
+      positions.forEach((p, i) => {
+        const el = document.createElement('div');
+        el.innerHTML = doodleSVGs[i % doodleSVGs.length];
+        const svgEl = el.firstElementChild;
+        svgEl.style.position = 'absolute';
+        svgEl.style.top = p.t;
+        svgEl.style.left = p.l;
+        svgEl.style.transform = `rotate(${(i % 2 ? 1 : -1) * (10 + i * 4)}deg)`;
+        doodleLayer.appendChild(svgEl);
+      });
+
+      // ---------- candle blow interaction ----------
+      const cakeSvg = document.getElementById('cakeSvg');
+      const wishReveal = document.getElementById('wishReveal');
+      let blown = 0;
+      const total = document.querySelectorAll('.flame').length;
+
+      cakeSvg.addEventListener('click', (e) => {
+        const flame = e.target.closest('.candle');
+        if (!flame) return;
+        const f = flame.querySelector('.flame');
+        if (f && !f.classList.contains('out')) {
+          f.classList.add('out');
+          blown++;
+          if (blown === total) {
+            wishReveal.classList.add('show');
+            launchConfetti();
+          }
+        }
+      });
+      cakeSvg.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          document.querySelectorAll('.flame:not(.out)').forEach(f => f.classList.add('out'));
+          wishReveal.classList.add('show');
+          launchConfetti();
+        }
+      });
+
+      // ---------- confetti burst (single orchestrated moment) ----------
+      function launchConfetti() {
+        const colors = ['#B7A4E0', '#7C63B3', '#A85B8C', '#E0B84B', '#F3DFA0'];
+        for (let i = 0; i < 50; i++) {
+          const piece = document.createElement('div');
+          piece.className = 'confetti-piece';
+          const size = 6 + Math.random() * 6;
+          piece.style.width = size + 'px';
+          piece.style.height = (size * 0.4) + 'px';
+          piece.style.left = Math.random() * 100 + 'vw';
+          piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+          const duration = 2.5 + Math.random() * 1.8;
+          const rotate = Math.random() * 360;
+          piece.style.transform = `rotate(${rotate}deg)`;
+          piece.animate([
+            { transform: `translateY(0) rotate(${rotate}deg)`, opacity: 1 },
+            { transform: `translateY(100vh) rotate(${rotate + 180}deg)`, opacity: 0.9 }
+          ], { duration: duration * 1000, easing: 'cubic-bezier(.25,.46,.45,.94)' });
+          document.body.appendChild(piece);
+          setTimeout(() => piece.remove(), duration * 1000 + 100);
+        }
+      }
+
+      // ---------- pin a wish ----------
+      const pinBtn = document.getElementById('pinWishBtn');
+      const wishInput = document.getElementById('wishInput');
+      const pinnedWishes = document.getElementById('pinnedWishes');
+      pinBtn.addEventListener('click', () => {
+        const val = wishInput.value.trim();
+        if (!val) return;
+        const note = document.createElement('div');
+        note.className = 'pin-note';
+        note.style.setProperty('--pr', (Math.random() * 4 - 2) + 'deg');
+        note.textContent = val;
+        pinnedWishes.appendChild(note);
+        wishInput.value = '';
+      });
+    })();
+  </script>
 
 </body>
+
 </html>
